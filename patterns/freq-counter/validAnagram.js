@@ -1,3 +1,4 @@
+// Slower solution
 // O(2N) Space | O(3N) Time
 // (str) -> boolean
 function validAnagramInitial(str1, str2) {
@@ -26,6 +27,7 @@ function validAnagramInitial(str1, str2) {
   return true;
 }
 
+// Faster solution
 // O(N) Space | O(2N) Time
 // (str) -> boolean
 function validAnagram(str1, str2) {
