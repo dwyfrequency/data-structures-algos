@@ -7,7 +7,9 @@ function areThereDuplicatesWithSet(...args) {
 function areThereDuplicatesWithMap(...args) {
   const freqCnt = {};
   for (const arg of args) {
-    if (freqCnt[arg]) return true;
+    if (freqCnt[arg]) {
+      return true;
+    }
     freqCnt[arg] = true;
   }
   return false;
