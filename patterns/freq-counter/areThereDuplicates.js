@@ -5,7 +5,7 @@ function areThereDuplicatesWithSet(...args) {
 }
 
 // Space O(n) | Time O(n)
-// (...<T>[]) -> boolean
+// (...T[]) -> boolean
 function areThereDuplicatesWithMap(...args) {
   const freqCnt = {};
   for (const arg of args) {
