@@ -4,6 +4,9 @@
 
 /**
  * Find max sum of contiguous subarray.
+ * Keeps a running sum of previously seen values. Each time we reach the size
+ * of the restriction, we decrement the left value and add the right of the
+ * window. After we compare, the curr sum to the max sum.
  * @param {int[]} arr
  * @param {int} subArrSize
  */
