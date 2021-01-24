@@ -1,3 +1,4 @@
+// Space O(N) where is N is num1 length | Time O(N)
 // (int, int) -> boolean
 function sameFrequency(num1, num2) {
   const freqCounter1 = {};
@@ -27,7 +28,7 @@ function sameFrequency(num1, num2) {
     num2Cnt++;
   }
 
-  // if the length of the numbers is different, they cannot have samefrequency
+  // if the length of the numbers is different, they cannot have same frequency
   return num1Cnt === num2Cnt;
 }
 console.log(sameFrequency(182, 281)); // true
