@@ -22,8 +22,8 @@ while right is less than the length
 function minSubArray(arr, target) {
   if (!arr || !arr.length) return 0;
   let left = 0,
-    right = 1,
-    currSum = arr[0],
+    right = 0,
+    currSum = arr[right],
     minLength = Infinity;
   while (right < arr.length) {
     if (currSum >= target) {
@@ -31,11 +31,12 @@ function minSubArray(arr, target) {
       currSum -= arr[left];
       left++;
     } else {
-      currSum += arr[right];
       right++;
+      currSum += arr[right];
     }
+    if (minLength === 1) return 1;
   }
-  return currSum >= target ? Math.min(right - left, minLength) : minLength;
+  return minLength === Infinity ? 0 : minLength;
 }
 
 console.log(minSubArray([2, 3, 1, 2, 4], 6)); // 2 b/c [2,4]
