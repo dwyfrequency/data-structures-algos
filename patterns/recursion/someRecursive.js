@@ -6,6 +6,8 @@
 // Space O(N) | Time O(N)
 function someRecursive(arr, callback) {
   if (arr.length === 0) return false;
+  // test first value and pass the remaining to the next function
+  // use or b/c only one value needs to be true to return true for entire chain
   return callback(arr[0]) || someRecursive(arr.slice(1), callback);
 }
 
