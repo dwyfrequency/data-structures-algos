@@ -1,3 +1,5 @@
+// Space O(1) | Time O(N)
+// (T[], T) -> int
 function linearSearch(arr, searchVal) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === searchVal) return i;
