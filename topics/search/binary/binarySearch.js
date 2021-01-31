@@ -1,3 +1,4 @@
+// Space O(1) | Time O(log n)
 // (arr) -> boolean
 function binarySearch(arr, searchVal) {
   let left = 0;
