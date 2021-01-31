@@ -3,7 +3,7 @@ function binarySearch(arr, searchVal) {
   let left = 0;
   let right = arr.length - 1;
   while (left <= right) {
-    let pivotIndex = Math.floor((right - left) / 2) + left;
+    let pivotIndex = Math.floor((right + left) / 2);
     const pivotValue = arr[pivotIndex];
     if (searchVal === pivotValue) {
       return pivotIndex;
