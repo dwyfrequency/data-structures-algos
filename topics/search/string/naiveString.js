@@ -5,18 +5,25 @@
  */
 // Space O(1) | Time O(N*M)
 function naiveStringWhile(searchStr, subStr) {
+  // if search string is too short then sub string can't exist in it.
   if (searchStr.length < subStr.length) return false;
+
+  // init points
   let searchStrIdx = 0;
   let subStrIdx = 0;
   while (searchStrIdx < searchStr.length) {
+    // if both values equal, move to next character in sub string
     if (searchStr[searchStrIdx] === subStr[subStrIdx]) {
       subStrIdx++;
     } else {
+      // if doesn't exist, reset counter
       subStrIdx = 0;
     }
+    // if the index is the length of the counter, we've found the string
     if (subStr.length === subStrIdx) {
       return true;
     }
+    // increment search Index
     searchStrIdx++;
   }
   return false;
