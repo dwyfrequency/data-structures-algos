@@ -28,7 +28,7 @@ function bubbleSort(arr) {
     }
     // if we went through the arr and didn't swap anything, then its already
     // sorted.
-    if (!swapped) return arr;
+    if (!swapped) break;
   }
   return arr;
 }
