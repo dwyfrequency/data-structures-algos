@@ -1,3 +1,4 @@
+// Space O(1) | Time(N^2)
 function selectionSort(array) {
   for (let left = 0; left < array.length - 1; left++) {
     // keep them in the loop so they reset each time
