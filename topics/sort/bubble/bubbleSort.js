@@ -15,6 +15,7 @@ function bubbleSortWithoutOptomization(arr) {
   return arr;
 }
 
+// Space O(1) | Time (N^2)
 function bubbleSort(arr) {
   // len - 1 b/c we are swapping + 1 so we don't want to go out of bounds
   for (let right = arr.length - 1; right > 0; right--) {
