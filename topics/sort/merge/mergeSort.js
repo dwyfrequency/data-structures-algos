@@ -29,6 +29,7 @@ function mergeArrays(arr1, arr2) {
   return newArr;
 }
 
+// Space O(N) | Time O(N(log N))
 function mergeSort(arr) {
   // at that length, arr is already sorted
   if (arr.length <= 1) {
