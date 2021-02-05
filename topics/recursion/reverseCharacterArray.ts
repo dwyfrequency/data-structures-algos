@@ -1,10 +1,10 @@
 /**
  Do not return anything, modify s in-place instead.
  */
-function reverseString(s: string[]): void {
+function reverseString(s: string[]): string[] {
 
     function swapIndices(idx1: number, idx2: number) {
-        if(idx1 >=  idx2) {
+        if(idx1 >= idx2) {
             return s;
         }
         [s[idx1], s[idx2]] = [s[idx2], s[idx1]];
@@ -15,4 +15,4 @@ function reverseString(s: string[]): void {
 };
 
 console.log(reverseString(["h","e","l","l","o"]));
-// $ ts-node reverseCharacterArray.ts
+// Terminal$ ts-node reverseCharacterArray.ts
