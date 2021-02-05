@@ -7,7 +7,7 @@
  * }
  */
 
-// Space O(?) | Time O(N)
+// Space O(N) for space on the call stack | Time O(N)
 /**
  * @param {TreeNode} root
  * @return {number}
@@ -23,4 +23,9 @@ var maxDepth = function (root, depth = 0) {
   const right = maxDepth(root.right, depth);
   // take largest
   return Math.max(left, right);
+};
+
+const maxDepthTiny = function (root) {
+  // base case, return max depth on side of tree
+  return root ? 1 + Math.max(root.left, root.right) : 0;
 };
