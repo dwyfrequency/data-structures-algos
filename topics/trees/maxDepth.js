@@ -27,5 +27,7 @@ var maxDepth = function (root, depth = 0) {
 
 const maxDepthTiny = function (root) {
   // base case, return max depth on side of tree
-  return root ? 1 + Math.max(root.left, root.right) : 0;
+  return root
+    ? 1 + Math.max(maxDepthTiny(root.left), maxDepthTiny(root.right))
+    : 0;
 };
