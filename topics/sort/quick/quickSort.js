@@ -18,7 +18,8 @@ function pivot(arr, startIdx = 0, endIdx = arr.length - 1) {
   let pivotIdx = 0;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] < pivotVal) {
-      pivotIdx++; // number of how many things are less than the pivot
+      // number of how many things are less than the pivot
+      pivotIdx++;
       // swap current index with the pivot index. If everything behind it is
       // small then it just swaps with itself. If the thing behind it is greater
       // than the pivot, then we'll be swapping those two indices.
