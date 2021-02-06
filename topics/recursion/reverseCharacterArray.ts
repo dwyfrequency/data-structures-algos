@@ -1,6 +1,4 @@
-/**
- Do not return anything, modify s in-place instead.
- */
+// https://leetcode.com/explore/learn/card/recursion-i/250/principle-of-recursion/1440/
 function reverseString(s: string[]): string[] {
 
     function swapIndices(idx1: number, idx2: number) {
