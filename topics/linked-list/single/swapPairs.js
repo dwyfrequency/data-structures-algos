@@ -9,13 +9,14 @@ class ListNode {
 
 function swapPairs(head) {
   // next check is to guard against can't take next of undefined
-  // this would accur in lists with odd number of values
+  // this would occur in lists with odd number of values
   if (head === null || head.next === null) return head;
 
   const prevHead = head; // 3
   const tempNextChain = prevHead.next.next; // null
   const newHead = prevHead.next; // 4
   newHead.next = prevHead;
+  // add the next attribute as the new head of the sub-list
   prevHead.next = swapPairs(tempNextChain);
   return newHead;
 }
