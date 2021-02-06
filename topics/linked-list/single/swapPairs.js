@@ -1,11 +1,4 @@
-class ListNode {
-  val;
-  next;
-  constructor(val, next) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
-  }
-}
+const ListNode = require('../shared/SinglyLinkedListNode');
 
 function swapPairs(head) {
   // next check is to guard against can't take next of undefined
