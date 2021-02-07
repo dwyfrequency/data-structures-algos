@@ -53,6 +53,21 @@ function reverseListIterative(head) {
   return prevNode;
 }
 
+function reverseListRecursive(head) {
+  function reverse(currNode, prevNode = null) {
+    // if we hit end of list, return our previous which will be our head of list
+    if (currNode === null) {
+      return prevNode;
+    }
+    const nextNode = currNode.next;
+    currNode.next = prevNode;
+    // new node will be new current and current will be new previous
+    return reverse(nextNode, currNode);
+  }
+
+  return reverse(head);
+}
+
 console.log(reverseList(new ListNode(1, null)));
 
 // Input: 1->2->3->NULL
