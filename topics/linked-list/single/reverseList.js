@@ -10,7 +10,7 @@ const ListNode = require('../shared/SinglyLinkedListNode');
 // }
 
 // review solution for iterative https://leetcode.com/problems/reverse-linked-list/discuss/58127/Python-Iterative-and-Recursive-Solution
-function reverseList(node) {
+function reverseListStack(node) {
   const stack = [];
   let currNode = node;
   while (currNode) {
@@ -31,6 +31,25 @@ function reverseList(node) {
   prevNode.next = null;
 
   return newHead;
+}
+
+function reverseList(head) {
+  let prevNode = null;
+  while (head) {
+    // take current node
+    const currNode = head;
+    // store next value so we can later reassign to be next iterations head
+    const nextNode = currNode.next;
+    // point current node to previous node
+    currNode.next = prevNode;
+    // now, assign previous node for next iteration as this iterations current
+    prevNode = currNode;
+    // iterate to the next node
+    head = nextNode;
+  }
+  // don't return head as it will be null
+  // return prevNode as that will be our head
+  return prevNode;
 }
 
 console.log(reverseList(new ListNode(1, null)));
