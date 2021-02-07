@@ -33,7 +33,8 @@ function reverseListStack(node) {
   return newHead;
 }
 
-function reverseList(head) {
+// Space O(1) | Time O(N)
+function reverseListIterative(head) {
   let prevNode = null;
   while (head) {
     // take current node
