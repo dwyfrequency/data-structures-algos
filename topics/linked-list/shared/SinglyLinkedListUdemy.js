@@ -4,3 +4,56 @@ class Node {
     this.next = next;
   }
 }
+
+class SinglyLinkedListUdemy {
+  head = null;
+  tail = null;
+  length = 0;
+
+  /**
+   * Add item to linked list
+   * @param {( number | string )} val
+   */
+  push(val) {
+    const node = new Node(val);
+    if (this.head === null) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this.length += 1;
+    // this is the list itself
+    return this;
+  }
+
+  /** Removes final item from linked list */
+  pop() {
+    if (this.head === null) throw new Error('the list is empty!!');
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    }
+
+    let currNode = this.head;
+    while (currNode) {
+      if (currNode.next === this.tail) {
+        this.tail = currNode;
+        this.tail.next = null;
+        break;
+      }
+      currNode = currNode.next;
+    }
+    this.length--;
+    return this;
+  }
+}
+
+const ll = new SinglyLinkedListUdemy();
+
+ll.push(2);
+console.log(ll.push(5));
+console.log(ll.pop());
+console.log(ll.pop());
+// console.log(ll.pop()); // error
