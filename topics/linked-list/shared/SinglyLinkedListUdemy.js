@@ -30,15 +30,18 @@ class SinglyLinkedListUdemy {
 
   /** Removes final item from linked list */
   pop() {
+    console.log({ hhj: this.head });
     if (this.head === null) throw new Error('the list is empty!!');
     if (this.head === this.tail) {
       this.head = null;
       this.tail = null;
     }
 
+    let oldTail;
     let currNode = this.head;
     while (currNode) {
       if (currNode.next === this.tail) {
+        oldTail = currNode;
         this.tail = currNode;
         this.tail.next = null;
         break;
@@ -46,7 +49,7 @@ class SinglyLinkedListUdemy {
       currNode = currNode.next;
     }
     this.length--;
-    return this;
+    return oldTail;
   }
 }
 
@@ -55,5 +58,5 @@ const ll = new SinglyLinkedListUdemy();
 ll.push(2);
 console.log(ll.push(5));
 console.log(ll.pop());
-console.log(ll.pop());
+// console.log(ll.pop());
 // console.log(ll.pop()); // error
