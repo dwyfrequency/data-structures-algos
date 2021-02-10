@@ -32,12 +32,13 @@ class SinglyLinkedListUdemy {
   pop() {
     console.log({ hhj: this.head });
     if (this.head === null) throw new Error('the list is empty!!');
+    let oldTail;
     if (this.head === this.tail) {
+      oldTail = this.tail;
       this.head = null;
       this.tail = null;
     }
 
-    let oldTail;
     let currNode = this.head;
     while (currNode) {
       if (currNode.next === this.tail) {
@@ -51,12 +52,27 @@ class SinglyLinkedListUdemy {
     this.length--;
     return oldTail;
   }
+
+  shift() {
+    if (this.head === null) throw new Error('the list is empty!!');
+    let oldHead = this.head;
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = oldHead.next;
+    }
+    oldHead.next = null;
+    return oldHead;
+  }
 }
 
 const ll = new SinglyLinkedListUdemy();
 
 ll.push(2);
 console.log(ll.push(5));
-console.log(ll.pop());
+// console.log(ll.pop());
+console.log(ll.shift());
+
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
