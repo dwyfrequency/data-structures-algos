@@ -82,8 +82,7 @@ class SinglyLinkedListUdemy {
     }
 
     let currNode = this.head;
-    // start at 1 because we've already made currNode the first element
-    for (let i = 1; i < index; i++) {
+    for (let i = 0; i < index; i++) {
       currNode = currNode.next;
     }
     return currNode;
@@ -98,7 +97,8 @@ ll.push(9);
 // console.log(ll.pop());
 // console.log(ll.shift());
 // console.log(ll.unshift(99));
-console.log(ll.get(2));
+console.log(ll.get(0));
+console.log(ll.get(1));
 
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
