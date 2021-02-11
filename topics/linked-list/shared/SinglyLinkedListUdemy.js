@@ -23,7 +23,7 @@ class SinglyLinkedListUdemy {
       this.tail.next = node;
       this.tail = node;
     }
-    this.length += 1;
+    this.length++;
     // this is the list itself
     return this;
   }
@@ -72,16 +72,33 @@ class SinglyLinkedListUdemy {
       this.head = node;
     }
 
+    this.length++;
     return this;
+  }
+
+  get(index) {
+    if (index > this.length) {
+      throw new Error('the list does not contain that index!!');
+    }
+
+    let currNode = this.head;
+    // start at 1 because we've already made currNode the first element
+    for (let i = 1; i < index; i++) {
+      currNode = currNode.next;
+    }
+    return currNode;
   }
 }
 
 const ll = new SinglyLinkedListUdemy();
 
 ll.push(2);
-console.log(ll.push(5));
+ll.push(9);
+// console.log(ll.push(5));
 // console.log(ll.pop());
 // console.log(ll.shift());
-console.log(ll.unshift(99));
+// console.log(ll.unshift(99));
+console.log(ll.get(2));
+
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
