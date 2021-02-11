@@ -56,14 +56,23 @@ class SinglyLinkedListUdemy {
   shift() {
     if (this.head === null) throw new Error('the list is empty!!');
     let oldHead = this.head;
-    if (this.head === this.tail) {
-      this.head = null;
-      this.tail = null;
-    } else {
-      this.head = oldHead.next;
-    }
+    this.head = oldHead.next;
     oldHead.next = null;
+    this.length--;
     return oldHead;
+  }
+
+  unshift(val) {
+    const node = new Node(val);
+    if (this.head === null) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
+
+    return this;
   }
 }
 
@@ -72,7 +81,7 @@ const ll = new SinglyLinkedListUdemy();
 ll.push(2);
 console.log(ll.push(5));
 // console.log(ll.pop());
-console.log(ll.shift());
-
+// console.log(ll.shift());
+console.log(ll.unshift(99));
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
