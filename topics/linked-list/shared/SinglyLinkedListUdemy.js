@@ -101,7 +101,6 @@ class SinglyLinkedListUdemy {
    */
   insert(index, value) {
     if (index < 0 || index > this.length) this.indexNotFound();
-    new Error('the list does not contain that index!!');
     if (index === 0) return this.unshift(value);
     if (index === this.length) return this.push(value);
     const node = new Node(value);
@@ -111,6 +110,14 @@ class SinglyLinkedListUdemy {
     node.next = nextNode;
     this.length++;
     return node;
+  }
+
+  remove(index) {
+    if (index < 0 || index > this.length) this.indexNotFound();
+    if (index === 0) {
+    }
+    if (index === this.length) {
+    }
   }
 
   indexNotFound() {
