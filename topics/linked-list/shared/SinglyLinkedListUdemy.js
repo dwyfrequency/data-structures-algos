@@ -87,6 +87,12 @@ class SinglyLinkedListUdemy {
     }
     return currNode;
   }
+
+  set(index, value) {
+    const currNode = this.get(index);
+    currNode.val = value;
+    return currNode;
+  }
 }
 
 const ll = new SinglyLinkedListUdemy();
@@ -97,8 +103,9 @@ ll.push(9);
 // console.log(ll.pop());
 // console.log(ll.shift());
 // console.log(ll.unshift(99));
-console.log(ll.get(0));
-console.log(ll.get(1));
+// console.log(ll.get(0));
+// console.log(ll.get(1));
+console.log(ll.set(0, 11));
 
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
