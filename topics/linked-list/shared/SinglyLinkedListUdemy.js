@@ -93,6 +93,18 @@ class SinglyLinkedListUdemy {
     currNode.val = value;
     return currNode;
   }
+
+  insert(index, value) {
+    if (index === 0) return this.unshift(value);
+    if (index === this.length) return this.push(value);
+    const node = new Node(value);
+    const prevNode = this.get(index - 1);
+    const nextNode = prevNode.next;
+    prevNode.next = node;
+    node.next = nextNode;
+    this.length++;
+    return node;
+  }
 }
 
 const ll = new SinglyLinkedListUdemy();
@@ -105,7 +117,8 @@ ll.push(9);
 // console.log(ll.unshift(99));
 // console.log(ll.get(0));
 // console.log(ll.get(1));
-console.log(ll.set(0, 11));
-
+// console.log(ll.set(0, 11));
+// console.log(ll.insert(0, 99));
+console.log(ll.insert(2, 99));
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
