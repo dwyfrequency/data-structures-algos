@@ -94,6 +94,11 @@ class SinglyLinkedListUdemy {
     return currNode;
   }
 
+  /**
+   * Insert value at specific index
+   * @param {number} index
+   * @param {(number|string)} value
+   */
   insert(index, value) {
     if (index === 0) return this.unshift(value);
     if (index === this.length) return this.push(value);
