@@ -31,7 +31,7 @@ class SinglyLinkedListUdemy {
   /** Removes final item from linked list */
   pop() {
     console.log({ hhj: this.head });
-    if (this.head === null) throw new Error('the list is empty!!');
+    if (this.head === null) this.indexNotFound();
     let oldTail;
     if (this.head === this.tail) {
       oldTail = this.tail;
@@ -54,7 +54,7 @@ class SinglyLinkedListUdemy {
   }
 
   shift() {
-    if (this.head === null) throw new Error('the list is empty!!');
+    if (this.head === null) this.indexNotFound();
     let oldHead = this.head;
     this.head = oldHead.next;
     oldHead.next = null;
@@ -78,7 +78,7 @@ class SinglyLinkedListUdemy {
 
   get(index) {
     if (index > this.length) {
-      throw new Error('the list does not contain that index!!');
+      this.indexNotFound();
     }
 
     let currNode = this.head;
@@ -100,6 +100,8 @@ class SinglyLinkedListUdemy {
    * @param {(number|string)} value
    */
   insert(index, value) {
+    if (index < 0 || index > this.length) this.indexNotFound();
+    new Error('the list does not contain that index!!');
     if (index === 0) return this.unshift(value);
     if (index === this.length) return this.push(value);
     const node = new Node(value);
@@ -109,6 +111,10 @@ class SinglyLinkedListUdemy {
     node.next = nextNode;
     this.length++;
     return node;
+  }
+
+  indexNotFound() {
+    throw new Error('the list does not contain that index!!');
   }
 }
 
@@ -124,6 +130,6 @@ ll.push(9);
 // console.log(ll.get(1));
 // console.log(ll.set(0, 11));
 // console.log(ll.insert(0, 99));
-console.log(ll.insert(2, 99));
+console.log(ll.insert(1, 99));
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
