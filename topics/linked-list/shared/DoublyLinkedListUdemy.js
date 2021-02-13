@@ -48,7 +48,18 @@ class DoublyLinkedListUdemy {
     return removedNode;
   }
 
-  shift(val) {}
+  shift(val) {
+    const node = new Node(val);
+    if (this.head === null) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head.prev;
+      this.head = node;
+    }
+    return this;
+  }
+
   unshift() {
     if (this.head === null) throw new Error('list empty');
   }
@@ -60,3 +71,4 @@ ll.push(99);
 ll.push(2);
 // console.log(ll.pop());
 // console.log(ll.pop());
+console.log(ll.shift(1));
