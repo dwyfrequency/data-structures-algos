@@ -113,8 +113,9 @@ class SinglyLinkedListUdemy {
   }
 
   remove(index) {
-    if (index < 0 || index > this.length) this.indexNotFound();
+    if (index < 0 || index >= this.length) this.indexNotFound();
     if (index === 0) return this.shift();
+    // index starts at 0 and length is plus 1
     if (index === this.length - 1) return this.pop();
     const prevNode = this.get(index - 1);
     const removeNode = prevNode.next;
