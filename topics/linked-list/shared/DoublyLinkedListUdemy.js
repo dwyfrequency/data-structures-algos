@@ -48,7 +48,11 @@ class DoublyLinkedListUdemy {
     return removedNode;
   }
 
-  shift(val) {
+  shift() {
+    if (this.head === null) throw new Error('list empty');
+  }
+
+  unshift(val) {
     const node = new Node(val);
     if (this.head === null) {
       this.head = node;
@@ -58,10 +62,6 @@ class DoublyLinkedListUdemy {
       this.head = node;
     }
     return this;
-  }
-
-  unshift() {
-    if (this.head === null) throw new Error('list empty');
   }
 }
 
