@@ -50,6 +50,18 @@ class DoublyLinkedListUdemy {
 
   shift() {
     if (this.head === null) throw new Error('list empty');
+    const removeNode = this.head;
+    if (removeNode === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = removeNode.next;
+      this.head.prev = null;
+    }
+
+    removeNode.next = null;
+    this.length--;
+    return removeNode;
   }
 
   unshift(val) {
@@ -61,6 +73,7 @@ class DoublyLinkedListUdemy {
       node.next = this.head.prev;
       this.head = node;
     }
+    this.length++;
     return this;
   }
 }
@@ -71,4 +84,6 @@ ll.push(99);
 ll.push(2);
 // console.log(ll.pop());
 // console.log(ll.pop());
-console.log(ll.shift(1));
+console.log(ll.shift());
+console.log(ll.shift());
+console.log(ll);
