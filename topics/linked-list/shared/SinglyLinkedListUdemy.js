@@ -115,7 +115,7 @@ class SinglyLinkedListUdemy {
   remove(index) {
     if (index < 0 || index > this.length) this.indexNotFound();
     if (index === 0) return this.shift();
-    if (index === this.length) return this.pop();
+    if (index === this.length - 1) return this.pop();
     const prevNode = this.get(index - 1);
     const removeNode = prevNode.next;
     const nextNode = removeNode.next; // gets the removed node's next
@@ -146,5 +146,5 @@ ll.push(11);
 // console.log(ll.insert(1, 99));
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
-console.log(ll.remove(1));
+console.log(ll.remove(2));
 console.log(ll);
