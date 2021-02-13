@@ -31,12 +31,32 @@ class DoublyLinkedListUdemy {
     this.length++;
     return this;
   }
-  pop() {}
+
+  pop() {
+    if (this.head === null) throw new Error('list empty');
+    let removedNode = this.tail;
+    if (this.head === removedNode) {
+      this.tail = null;
+      this.head = null;
+    } else {
+      this.tail = removedNode.prev;
+      this.tail.next = null;
+    }
+
+    removedNode.prev = null;
+    this.length--;
+    return removedNode;
+  }
+
   shift(val) {}
-  unshift() {}
+  unshift() {
+    if (this.head === null) throw new Error('list empty');
+  }
 }
 
 const n1 = new Node(12, null, null);
 const ll = new DoublyLinkedListUdemy();
 ll.push(99);
-console.log(ll.push(2));
+ll.push(2);
+// console.log(ll.pop());
+// console.log(ll.pop());
