@@ -10,6 +10,7 @@ class SinglyLinkedListUdemy {
   tail = null;
   length = 0;
 
+  // Time O(1)
   /**
    * Add item to linked list
    * @param {( number | string )} val
@@ -28,6 +29,7 @@ class SinglyLinkedListUdemy {
     return this;
   }
 
+  // Time O(N)
   /** Removes final item from linked list */
   pop() {
     console.log({ hhj: this.head });
@@ -53,6 +55,7 @@ class SinglyLinkedListUdemy {
     return oldTail;
   }
 
+  // Time O(1)
   shift() {
     if (this.head === null) this.indexNotFound();
     let oldHead = this.head;
@@ -62,6 +65,7 @@ class SinglyLinkedListUdemy {
     return oldHead;
   }
 
+  // Time O(1)
   unshift(val) {
     const node = new Node(val);
     if (this.head === null) {
@@ -76,6 +80,7 @@ class SinglyLinkedListUdemy {
     return this;
   }
 
+  // Time O(N)
   get(index) {
     if (index > this.length) {
       this.indexNotFound();
@@ -88,12 +93,14 @@ class SinglyLinkedListUdemy {
     return currNode;
   }
 
+  // Time O(N)
   set(index, value) {
     const currNode = this.get(index);
     currNode.val = value;
     return currNode;
   }
 
+  // Time O(N)
   /**
    * Insert value at specific index
    * @param {number} index
@@ -112,6 +119,7 @@ class SinglyLinkedListUdemy {
     return node;
   }
 
+  // Time O(N)
   remove(index) {
     if (index < 0 || index >= this.length) this.indexNotFound();
     if (index === 0) return this.shift();
@@ -130,6 +138,7 @@ class SinglyLinkedListUdemy {
     throw new Error('the list does not contain that index!!');
   }
 
+  // Time O(N)
   static reverse(node) {
     if (!node) return null;
     let prevNode = null;
