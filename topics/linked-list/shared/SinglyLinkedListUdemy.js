@@ -129,7 +129,28 @@ class SinglyLinkedListUdemy {
   indexNotFound() {
     throw new Error('the list does not contain that index!!');
   }
+
+  static reverse(node) {
+    if (!node) return null;
+    let prevNode = null;
+    let currNode = node;
+    while (currNode.next) {
+      // store next item in list
+      const nextNode = currNode.next;
+      // reassign current items next pointer to previous node
+      currNode.next = prevNode;
+      // assign for next iteration
+      prevNode = currNode;
+      // assign next iterations current node to the next in the list
+      currNode = nextNode;
+    }
+    currNode.next = prevNode;
+
+    return currNode;
+  }
 }
+
+// null <- 2 <- 9 <- 11
 
 const ll = new SinglyLinkedListUdemy();
 
@@ -147,5 +168,5 @@ ll.push(11);
 // console.log(ll.insert(1, 99));
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
-console.log(ll.remove(2));
-console.log(ll);
+// console.log(ll.remove(2));
+console.log(SinglyLinkedListUdemy.reverse(ll.head));
