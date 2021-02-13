@@ -114,10 +114,15 @@ class SinglyLinkedListUdemy {
 
   remove(index) {
     if (index < 0 || index > this.length) this.indexNotFound();
-    if (index === 0) {
-    }
-    if (index === this.length) {
-    }
+    if (index === 0) return this.shift();
+    if (index === this.length) return this.pop();
+    const prevNode = this.get(index - 1);
+    const removeNode = prevNode.next;
+    const nextNode = removeNode.next; // gets the removed node's next
+    prevNode.next = nextNode;
+    removeNode.next = null;
+    this.length--;
+    return removeNode;
   }
 
   indexNotFound() {
@@ -129,6 +134,7 @@ const ll = new SinglyLinkedListUdemy();
 
 ll.push(2);
 ll.push(9);
+ll.push(11);
 // console.log(ll.push(5));
 // console.log(ll.pop());
 // console.log(ll.shift());
@@ -137,6 +143,8 @@ ll.push(9);
 // console.log(ll.get(1));
 // console.log(ll.set(0, 11));
 // console.log(ll.insert(0, 99));
-console.log(ll.insert(1, 99));
+// console.log(ll.insert(1, 99));
 // console.log(ll.pop());
 // console.log(ll.pop()); // error
+console.log(ll.remove(1));
+console.log(ll);
