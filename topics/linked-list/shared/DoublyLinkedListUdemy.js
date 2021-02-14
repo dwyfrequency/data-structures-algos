@@ -76,14 +76,39 @@ class DoublyLinkedListUdemy {
     this.length++;
     return this;
   }
+
+  get(index) {
+    if (index < 0 || index >= this.length) throw new Error(`no ${index}`);
+    if (index === 0) return this.head;
+    if (index === this.length - 1) return this.tail;
+    /** @type {number} currCnt */
+    let currCnt;
+    /** @type {Node} currNode */
+    let currNode;
+    if (index > Math.floor(this.length / 2)) {
+      currCnt = this.length - 1;
+      currNode = this.tail;
+      while (currCnt !== index) {
+        currNode = currNode.prev;
+        currCnt--;
+      }
+    } else {
+      currCnt = 0;
+      currNode = this.head;
+      while (currCnt !== index) {
+        currNode = currNode.next;
+        currCnt++;
+      }
+    }
+    return currNode;
+  }
 }
 
 const n1 = new Node(12, null, null);
 const ll = new DoublyLinkedListUdemy();
 ll.push(99);
 ll.push(2);
-// console.log(ll.pop());
-// console.log(ll.pop());
-console.log(ll.shift());
-console.log(ll.shift());
-console.log(ll);
+ll.push(87);
+ll.push(32);
+ll.push(54);
+console.log(ll.get(2));
