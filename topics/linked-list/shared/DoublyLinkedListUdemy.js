@@ -132,6 +132,7 @@ class DoublyLinkedListUdemy {
     prevNode.next = tailNode;
     tailNode.prev = prevNode;
 
+    this.length--;
     return this._removeReferences(removeNode);
   }
 
