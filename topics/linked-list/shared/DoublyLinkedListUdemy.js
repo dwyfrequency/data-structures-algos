@@ -78,7 +78,7 @@ class DoublyLinkedListUdemy {
   }
 
   get(index) {
-    if (index < 0 || index >= this.length) throw new Error(`no ${index}`);
+    if (index < 0 || index >= this.length) throw new Error(`No idx: ${index}`);
     if (index === 0) return this.head;
     if (index === this.length - 1) return this.tail;
     /** @type {number} currCnt */
@@ -117,7 +117,28 @@ class DoublyLinkedListUdemy {
     originalNode.prev.next = newNode;
     originalNode.prev = newNode;
 
+    this.length++;
     return newNode;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) throw new Error(`No idx: ${index}`);
+    if (index === this.length - 1) this.pop();
+    if (index === 0) this.shift();
+
+    const prevNode = this.get(index - 1);
+    const removeNode = prevNode.next;
+    const tailNode = removeNode.next;
+    prevNode.next = tailNode;
+    tailNode.prev = prevNode;
+
+    return this._removeReferences(removeNode);
+  }
+
+  _removeReferences(node) {
+    node.next = null;
+    node.prev = null;
+    return node;
   }
 }
 
@@ -128,5 +149,6 @@ ll.push(2);
 ll.push(87);
 ll.push(32);
 ll.push(54);
-ll.insert(2, 77);
-console.log(ll.get(1));
+// ll.insert(2, 77);
+// console.log(ll.get(1));
+console.log(ll.remove(3));
