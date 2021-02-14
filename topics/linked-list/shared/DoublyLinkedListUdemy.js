@@ -104,6 +104,12 @@ class DoublyLinkedListUdemy {
   }
 
   set(index, val) {
+    const node = this.get(index);
+    node.val = val;
+    return node;
+  }
+
+  insert(index, val) {
     const originalNode = this.get(index);
     const newNode = new Node(val, originalNode.prev, originalNode);
     originalNode.prev = newNode;
@@ -119,4 +125,5 @@ ll.push(2);
 ll.push(87);
 ll.push(32);
 ll.push(54);
-console.log(ll.set(2, 77));
+// console.log(ll.insert(2, 77));
+// console.log(ll.set(2, 90));
