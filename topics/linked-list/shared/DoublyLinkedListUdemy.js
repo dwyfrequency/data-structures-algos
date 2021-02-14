@@ -102,6 +102,14 @@ class DoublyLinkedListUdemy {
     }
     return currNode;
   }
+
+  set(index, val) {
+    const originalNode = this.get(index);
+    const newNode = new Node(val, originalNode.prev, originalNode);
+    originalNode.prev = newNode;
+
+    return newNode;
+  }
 }
 
 const n1 = new Node(12, null, null);
@@ -111,4 +119,4 @@ ll.push(2);
 ll.push(87);
 ll.push(32);
 ll.push(54);
-console.log(ll.get(2));
+console.log(ll.set(2, 77));
