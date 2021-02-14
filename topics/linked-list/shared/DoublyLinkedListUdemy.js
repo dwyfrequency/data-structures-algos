@@ -110,6 +110,8 @@ class DoublyLinkedListUdemy {
   }
 
   insert(index, val) {
+    if (index === this.length) this.push(val);
+    if (index === 0) this.unshift(val);
     const originalNode = this.get(index);
     const newNode = new Node(val, originalNode.prev, originalNode);
     originalNode.prev = newNode;
