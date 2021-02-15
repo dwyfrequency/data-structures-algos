@@ -5,6 +5,8 @@ class Node {
   }
 }
 
+// We use a singly linked list and keep updating the head so that
+// we can remove and add in constant time
 class StackUdemy {
   head;
 
