@@ -141,6 +141,27 @@ class DoublyLinkedListUdemy {
     node.prev = null;
     return node;
   }
+
+  static swapPointers(node) {
+    const newPrev = node.next;
+    node.next = node.prev;
+    node.prev = newPrev;
+    return node;
+  }
+
+  /**
+   *
+   * @param {Node} node
+   */
+  static reverse(node) {
+    let currNode = node;
+    while (currNode.next) {
+      const nextNode = currNode.next;
+      currNode = DoublyLinkedListUdemy.swapPointers(currNode);
+      currNode = nextNode;
+    }
+    return DoublyLinkedListUdemy.swapPointers(currNode);
+  }
 }
 
 const n1 = new Node(12, null, null);
@@ -152,4 +173,4 @@ ll.push(32);
 ll.push(54);
 // ll.insert(2, 77);
 // console.log(ll.get(1));
-console.log(ll.remove(3));
+console.log(DoublyLinkedListUdemy.reverse(ll.get(0)));
