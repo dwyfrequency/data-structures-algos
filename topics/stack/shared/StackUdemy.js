@@ -6,7 +6,8 @@ class Node {
 }
 
 // We use a singly linked list and keep updating the head so that
-// we can remove and add in constant time
+// we can remove and add in constant time. It's really shift and unshift
+// functionality but we need to abide by the interface=
 class StackUdemy {
   head;
 
