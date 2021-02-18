@@ -32,6 +32,9 @@ class Queue {
   dequeue() {
     if (!this.first) throw new Error('Empty list!!!');
     const removeNode = this.first;
+    if (removeNode === this.last) {
+      this.last = null;
+    }
     this.first = this.first.next;
 
     removeNode.next = null;
