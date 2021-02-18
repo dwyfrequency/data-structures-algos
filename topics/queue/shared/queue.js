@@ -12,6 +12,7 @@ class Queue {
     this.length = length;
   }
 
+  /** Add new item to end of linked list queue. */
   enqueue(val) {
     const node = new Node(val);
     if (!this.first) {
@@ -27,6 +28,7 @@ class Queue {
     return this;
   }
 
+  /** Remove item from beginning of linked list queue. */
   dequeue() {
     if (!this.first) throw new Error('Empty list!!!');
     const removeNode = this.first;
