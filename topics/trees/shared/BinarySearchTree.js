@@ -22,11 +22,23 @@ class BinarySearchTree {
     }
     return this;
   }
+
+  search(val) {
+    if (!this.root) return null;
+    let currNode = this.root;
+    while (currNode) {
+      if (val === currNode.val) return currNode;
+      if (val > currNode.val) currNode = currNode.right;
+      else currNode = currNode.left;
+    }
+    return null;
+  }
 }
 
 const bst = new BinarySearchTree();
 bst.insert(6);
 bst.insert(9);
 bst.insert(7);
-bst.insert(8);
-console.log(bst.root);
+// bst.insert(8);
+// console.log(bst.root);
+console.log(bst.search(9));
