@@ -13,11 +13,12 @@ class BinarySearchTree {
       let currNode = this.root;
       while (currNode) {
         prevNode = currNode;
-        if (val >= currNode.val) currNode = currNode.right;
+        if (val === currNode) return this; // can't have duplicates
+        if (val > currNode.val) currNode = currNode.right;
         else currNode = currNode.left;
       }
       // assign new node to the proper branch of the local root
-      val >= prevNode.val ? (prevNode.right = node) : (prevNode.left = node);
+      val > prevNode.val ? (prevNode.right = node) : (prevNode.left = node);
     }
     return this;
   }
