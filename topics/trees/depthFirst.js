@@ -7,7 +7,8 @@ const TreeNode = require('./shared/TreeNode');
  */
 function preOrderTraversal(node) {
   if (!node) return [];
-  return [node.val].concat(
+  return [].concat(
+    node.val,
     preOrderTraversal(node.left),
     preOrderTraversal(node.right)
   );
@@ -20,17 +21,32 @@ function preOrderTraversal(node) {
  */
 function postOrderTraversal(node) {
   if (!node) return [];
-  // if(node.left)
-  // return [node.left].concat(
-  //   preOrderTraversal(node.right),
-  //   preOrderTraversal(node.val)
-  // );
+  return [].concat(
+    postOrderTraversal(node.left),
+    postOrderTraversal(node.right),
+    node.val
+  );
+}
+
+/**
+ * In-order traversal takes the left node first, then root, and finally right.
+ * @param {TreeNode} node
+ * @returns {number[]}
+ */
+function inOrderTraversal(node) {
+  if (!node) return [];
+  return [].concat(
+    inOrderTraversal(node.left),
+    node.val,
+    inOrderTraversal(node.right)
+  );
 }
 
 const node = new TreeNode(
   10,
   new TreeNode(5, new TreeNode(3)),
-  new TreeNode(6)
+  new TreeNode(11, null, new TreeNode(14))
 );
-// console.log(preOrderTraversal(node)); // [ 10, 5, 3, 6 ]
-console.log(postOrderTraversal(node)); // [ 3, 5, 6, 10 ]
+// console.log(preOrderTraversal(node)); // [ 10, 5, 3, 11, 14 ]
+// console.log(postOrderTraversal(node)); // [ 3, 5, 14, 11, 10 ]
+console.log(inOrderTraversal(node)); // [ 3, 5, 10, 11, 14]
